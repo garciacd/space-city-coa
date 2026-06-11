@@ -1,8 +1,42 @@
 ---
+const stars = [
+  { top:  12, left:  8,  size: 1,   duration: 2.8, delay: 0.0, gold: false },
+  { top:   6, left: 22,  size: 1,   duration: 3.5, delay: 0.7, gold: true  },
+  { top:  18, left: 38,  size: 1,   duration: 2.2, delay: 1.4, gold: false },
+  { top:   9, left: 52,  size: 1.5, duration: 4.1, delay: 0.3, gold: true  },
+  { top:  15, left: 67,  size: 1,   duration: 3.0, delay: 2.1, gold: false },
+  { top:   5, left: 79,  size: 1,   duration: 2.6, delay: 0.9, gold: false },
+  { top:  22, left: 91,  size: 1,   duration: 3.8, delay: 1.8, gold: true  },
+  { top:  45, left: 15,  size: 1,   duration: 2.4, delay: 3.2, gold: false },
+  { top:  72, left: 33,  size: 1,   duration: 3.3, delay: 1.1, gold: false },
+  { top:  60, left: 85,  size: 1.5, duration: 4.5, delay: 2.7, gold: true  },
+  { top:  80, left: 95,  size: 1,   duration: 2.9, delay: 0.5, gold: false },
+  { top:  88, left: 47,  size: 1,   duration: 3.7, delay: 3.9, gold: false },
+  { top:  77, left:  6,  size: 1,   duration: 2.1, delay: 2.3, gold: true  },
+  { top:  40, left: 72,  size: 1.5, duration: 3.4, delay: 1.6, gold: false },
+  { top:  30, left: 58,  size: 1,   duration: 4.2, delay: 0.4, gold: false },
+  { top:  55, left: 25,  size: 1,   duration: 2.7, delay: 3.1, gold: true  },
+  { top:  65, left: 62,  size: 1,   duration: 3.1, delay: 2.5, gold: false },
+  { top:  20, left: 44,  size: 1,   duration: 2.3, delay: 4.4, gold: false },
+  { top:  35, left:  3,  size: 1,   duration: 3.6, delay: 1.9, gold: false },
+  { top:  92, left: 70,  size: 1,   duration: 2.5, delay: 0.8, gold: true  },
+];
 ---
 <section class="hero">
-  <div class="starfield" aria-hidden="true"></div>
-  <div class="moon"      aria-hidden="true"></div>
+  <!-- Individual twinkling stars -->
+  {stars.map((s) => (
+    <span
+      class:list={['star', s.gold ? 'star-gold' : '']}
+      style={`top:${s.top}%;left:${s.left}%;width:${s.size}px;height:${s.size}px;--dur:${s.duration}s;--del:${s.delay}s`}
+      aria-hidden="true"
+    ></span>
+  ))}
+
+  <!-- Shooting star -->
+  <div class="shooting-star" aria-hidden="true"></div>
+
+  <!-- Moon -->
+  <div class="moon" aria-hidden="true"></div>
 
   <div class="hero-inner">
     <div class="hero-text">
@@ -47,27 +81,55 @@
       var(--bg-deep);
   }
 
-  .starfield {
+  /* ── Individual twinkling stars ── */
+  .star {
     position: absolute;
-    inset: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
     pointer-events: none;
-    background-image:
-      radial-gradient(1px 1px at  8% 12%, rgba(255,255,255,0.8)  0%, transparent 100%),
-      radial-gradient(1px 1px at 22%  6%, rgba(201,168,76,0.67)  0%, transparent 100%),
-      radial-gradient(1px 1px at 38% 18%, rgba(255,255,255,0.67) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 52% 9%, rgba(201,168,76,0.87) 0%, transparent 100%),
-      radial-gradient(1px 1px at 67% 15%, rgba(255,255,255,0.53) 0%, transparent 100%),
-      radial-gradient(1px 1px at 79%  5%, rgba(255,255,255,0.73) 0%, transparent 100%),
-      radial-gradient(1px 1px at 91% 22%, rgba(201,168,76,0.53)  0%, transparent 100%),
-      radial-gradient(1px 1px at 15% 45%, rgba(255,255,255,0.27) 0%, transparent 100%),
-      radial-gradient(1px 1px at 33% 72%, rgba(255,255,255,0.33) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 85% 60%, rgba(201,168,76,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 95% 80%, rgba(255,255,255,0.27) 0%, transparent 100%),
-      radial-gradient(1px 1px at 47% 88%, rgba(255,255,255,0.27) 0%, transparent 100%),
-      radial-gradient(1px 1px at  6% 77%, rgba(201,168,76,0.27)  0%, transparent 100%),
-      radial-gradient(1px 1px at 72% 40%, rgba(255,255,255,0.4)  0%, transparent 100%);
+    animation: twinkle var(--dur) ease-in-out infinite;
+    animation-delay: var(--del);
+  }
+  .star-gold { background: rgba(201, 168, 76, 0.85); }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 1;    transform: scale(1);   }
+    50%       { opacity: 0.1; transform: scale(0.4); }
   }
 
+  /* ── Shooting star ── */
+  .shooting-star {
+    position: absolute;
+    width: 160px;
+    height: 1.5px;
+    border-radius: 50%;
+    background: linear-gradient(to left, transparent, rgba(255,255,255,0.9) 60%, rgba(201,168,76,0.6));
+    transform: rotate(-30deg);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .shooting-star::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -1px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 4px 1px rgba(201, 168, 76, 0.6);
+  }
+  .shooting-star.active {
+    animation: shoot 0.75s ease-out forwards;
+  }
+
+  @keyframes shoot {
+    0%   { opacity: 1; transform: rotate(-30deg) translateX(0);      }
+    70%  { opacity: 0.8; }
+    100% { opacity: 0; transform: rotate(-30deg) translateX(-420px); }
+  }
+
+  /* ── Moon ── */
   .moon {
     position: absolute;
     top: 3rem;
@@ -145,3 +207,25 @@
     .cert-wrapper:hover  { transform: none; }
   }
 </style>
+
+<script>
+  function launchShootingStar() {
+    const star = document.querySelector('.shooting-star') as HTMLElement;
+    if (!star) return;
+
+    // Random position in the upper portion of the hero
+    star.style.top  = (4  + Math.random() * 35) + '%';
+    star.style.left = (25 + Math.random() * 55) + '%';
+
+    star.classList.add('active');
+
+    star.addEventListener('animationend', () => {
+      star.classList.remove('active');
+      // Next shooting star in 4–12 seconds
+      setTimeout(launchShootingStar, 4000 + Math.random() * 8000);
+    }, { once: true });
+  }
+
+  // First appearance after 2–5 seconds
+  setTimeout(launchShootingStar, 2000 + Math.random() * 3000);
+</script>
