@@ -36,7 +36,7 @@ const stars = [
   <div class="shooting-star" aria-hidden="true"></div>
 
   <!-- Moon -->
-  <div class="moon" aria-hidden="true"></div>
+  <img class="moon" src="/moon.jpg" alt="" aria-hidden="true" />
 
   <div class="hero-inner">
     <div class="hero-text">
@@ -132,15 +132,16 @@ const stars = [
   /* ── Moon ── */
   .moon {
     position: absolute;
-    top: 3rem;
-    right: 4rem;
-    width: 3.25rem;
-    height: 3.25rem;
+    top: 2.5rem;
+    right: 3.5rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #f5e9c8, #c9a070);
-    box-shadow: 0 0 1.25rem rgba(201,168,76,0.27), inset -6px -3px 12px rgba(0,0,0,0.3);
-    opacity: 0.6;
+    object-fit: cover;
+    opacity: 0.75;
     pointer-events: none;
+    box-shadow: 0 0 2rem rgba(201, 168, 76, 0.2), 0 0 6rem rgba(201, 168, 76, 0.08);
+    filter: brightness(0.85) contrast(1.05);
   }
 
   .hero-inner {
