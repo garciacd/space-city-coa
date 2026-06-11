@@ -145,10 +145,10 @@ const stars = [
     height: 7rem;
     border-radius: 50%;
     object-fit: cover;
-    opacity: 0.75;
+    opacity: 0.95;
     pointer-events: none;
-    box-shadow: 0 0 2rem rgba(201, 168, 76, 0.2), 0 0 6rem rgba(201, 168, 76, 0.08);
-    filter: brightness(0.85) contrast(1.05);
+    box-shadow: 0 0 2rem rgba(201, 168, 76, 0.35), 0 0 6rem rgba(201, 168, 76, 0.15);
+    filter: brightness(1.2) contrast(1.05);
   }
 
   .hero-inner {
@@ -223,18 +223,6 @@ const stars = [
     animation: uv-pulse 3s ease-in-out infinite;
   }
 
-  /* Glow intensifies when the certificate is hovered */
-  .cert-wrapper:hover .cert-seal-wrapper {
-    animation: none;
-    box-shadow:
-      0 0 10px 5px rgba(170, 80, 255, 1),
-      0 0 22px 10px rgba(130, 10, 255, 0.95),
-      0 0 45px 20px rgba(100, 0, 230, 0.7),
-      0 0 80px 35px rgba(70, 0, 200, 0.4),
-      0 0 120px 55px rgba(40, 0, 160, 0.2);
-    transform: scale(1.06);
-  }
-
   .cert-seal {
     width: 100%;
     height: 100%;
@@ -245,17 +233,18 @@ const stars = [
   @keyframes uv-pulse {
     0%, 100% {
       box-shadow:
-        0 0 5px 2px rgba(138, 43, 226, 0.8),
-        0 0 12px 5px rgba(100, 0, 255, 0.6),
-        0 0 24px 10px rgba(75, 0, 200, 0.35),
-        0 0 44px 18px rgba(50, 0, 180, 0.15);
+        0 0 8px 4px rgba(160, 60, 255, 0.9),
+        0 0 18px 8px rgba(130, 10, 255, 0.75),
+        0 0 40px 16px rgba(100, 0, 230, 0.5),
+        0 0 70px 28px rgba(70, 0, 200, 0.25);
     }
     50% {
       box-shadow:
-        0 0 8px 4px rgba(160, 60, 255, 1),
-        0 0 18px 8px rgba(120, 0, 255, 0.85),
-        0 0 38px 16px rgba(90, 0, 220, 0.55),
-        0 0 65px 28px rgba(60, 0, 180, 0.28);
+        0 0 12px 6px rgba(180, 80, 255, 1),
+        0 0 26px 12px rgba(140, 20, 255, 0.95),
+        0 0 55px 24px rgba(110, 0, 235, 0.65),
+        0 0 95px 42px rgba(75, 0, 210, 0.35),
+        0 0 130px 60px rgba(45, 0, 170, 0.18);
     }
   }
 
