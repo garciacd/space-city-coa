@@ -1,0 +1,121 @@
+---
+---
+<section class="ornate-section" style="background: var(--bg-deep);">
+  <div class="section-inner">
+    <div class="flourish">✦ · ✦ · ✦</div>
+    <h2 class="section-heading">Why Does a Third-Party Witness Matter?</h2>
+    <p class="section-intro body-text">
+      Not all Certificates of Authentication are equal. The difference lies in
+      who issues them — and what stake they have in the transaction.
+    </p>
+
+    <div class="comparison">
+      <div class="panel panel-warning">
+        <div class="panel-header">
+          <span class="panel-icon warning-icon">⚠</span>
+          <h3>Seller-Issued Certificate</h3>
+        </div>
+        <ul class="panel-list">
+          <li>Issued by the person selling the item</li>
+          <li>No independent verification of the signing</li>
+          <li>Direct financial interest in the sale</li>
+          <li>Value depends entirely on the seller's word</li>
+          <li>Cannot be confirmed by a neutral third party</li>
+        </ul>
+      </div>
+
+      <div class="comparison-divider" aria-hidden="true">✦</div>
+
+      <div class="panel panel-trust">
+        <div class="panel-header">
+          <span class="panel-icon trust-icon">✓</span>
+          <h3>Space City Books CoA</h3>
+        </div>
+        <ul class="panel-list">
+          <li>Issued by Space City Books — independent of the sale</li>
+          <li>Representative physically present at the moment of signing</li>
+          <li>No financial stake in the transaction</li>
+          <li>Documents item, event name, and date of signing</li>
+          <li>Value backed by an impartial, named witness</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-intro {
+    text-align: center;
+    max-width: 37.5rem;
+    margin: 0 auto 3rem;
+  }
+
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .panel {
+    padding: 2rem;
+    border: 1px solid var(--gold-dim);
+  }
+  .panel-warning { border-color: rgba(201,168,76,0.15); }
+  .panel-trust   { border-color: var(--gold-dim); }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .panel-icon {
+    font-size: 1.25rem;
+    width: 2rem;
+    text-align: center;
+  }
+  .warning-icon { color: rgba(201,168,76,0.33); }
+  .trust-icon   { color: var(--gold); }
+
+  .panel-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--text-primary);
+  }
+  .panel-warning .panel-header h3 { color: var(--text-body); }
+
+  .panel-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .panel-list li {
+    font-size: 0.875rem;
+    color: var(--text-body);
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.5;
+  }
+  .panel-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--gold-dim);
+  }
+  .panel-trust .panel-list li         { color: var(--text-primary); }
+  .panel-trust .panel-list li::before { color: var(--gold); }
+
+  .comparison-divider {
+    font-size: 1.5rem;
+    color: var(--gold-dim);
+    padding: 0 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .comparison { grid-template-columns: 1fr; }
+    .comparison-divider { display: none; }
+  }
+</style>
