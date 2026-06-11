@@ -138,8 +138,8 @@ const stars = [
     position: absolute;
     top: 0.75rem;
     right: 3.5rem;
-    width: 16rem;
-    height: 16rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 50%;
     object-fit: cover;
     opacity: 0.95;
@@ -280,6 +280,12 @@ const stars = [
   }
 
   @media (max-width: 768px) {
+    .moon {
+      width: 5rem;
+      height: 5rem;
+      top: 1rem;
+      right: 1rem;
+    }
     .hero { padding: 5rem 1.5rem 3rem; }
     .hero-inner {
       grid-template-columns: 1fr;
