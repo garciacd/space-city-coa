@@ -1,0 +1,59 @@
+---
+---
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="logo-space">Space City</span>
+    <span class="logo-coa">CoA</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.125rem 3rem;
+    background: rgba(6, 10, 20, 0.95);
+    border-bottom: 1px solid var(--gold-dim);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    font-family: var(--font-serif);
+    font-size: 0.875rem;
+    letter-spacing: 0.1875rem;
+    text-transform: uppercase;
+  }
+  .logo-space { color: var(--gold); }
+  .logo-coa   { color: var(--text-primary); }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  .nav-links a {
+    color: var(--text-body);
+    text-decoration: none;
+    font-size: 0.625rem;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+  }
+</style>
