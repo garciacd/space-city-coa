@@ -1,0 +1,119 @@
+---
+const steps = [
+  {
+    numeral: 'I',
+    title: 'At the Convention',
+    description:
+      'The collector brings their item to the signing table at a convention where Space City Books is present as an independent witness.',
+  },
+  {
+    numeral: 'II',
+    title: 'Space City Books Witnesses',
+    description:
+      'A Space City Books representative watches the celebrity, artist, or author sign the item in person — with no financial stake in the transaction.',
+  },
+  {
+    numeral: 'III',
+    title: 'Certificate Issued',
+    description:
+      'The Certificate of Authentication is completed on-site, recording the item description, name of event, and date of signing.',
+  },
+  {
+    numeral: 'IV',
+    title: 'Collector Receives CoA',
+    description:
+      'The collector walks away with both their signed item and the CoA — a permanent, independent record of exactly what happened.',
+  },
+];
+---
+<section id="process" class="ornate-section" style="background: var(--bg-mid);">
+  <div class="section-inner">
+    <div class="flourish">✦ · ✦ · ✦</div>
+    <h2 class="section-heading">The Process</h2>
+
+    <div class="steps">
+      {steps.map((step) => (
+        <div class="step">
+          <div class="step-number">{step.numeral}</div>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-description">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    left: calc(12.5% + 1.25rem);
+    right: calc(12.5% + 1.25rem);
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--gold-dim) 10%,
+      var(--gold-dim) 90%,
+      transparent
+    );
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .step-number {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 0.875rem;
+    color: var(--gold);
+    background: var(--bg-mid);
+    position: relative;
+    z-index: 1;
+    flex-shrink: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-title {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .step-description {
+    font-size: 0.8125rem;
+    color: var(--text-body);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .steps::before { display: none; }
+    .step { align-items: flex-start; text-align: left; }
+  }
+</style>
