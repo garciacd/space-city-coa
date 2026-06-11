@@ -1,0 +1,100 @@
+---
+---
+<section id="about" class="ornate-section ornate-border" style="background: var(--bg-deep);">
+  <span class="corner tl" aria-hidden="true"></span>
+  <span class="corner tr" aria-hidden="true"></span>
+  <span class="corner bl" aria-hidden="true"></span>
+  <span class="corner br" aria-hidden="true"></span>
+
+  <div class="section-inner">
+    <div class="flourish">✦ · ✦ · ✦</div>
+    <h2 class="section-heading">About Space City Books</h2>
+
+    <div class="about-grid">
+      <div class="photo-col">
+        <div class="photo-placeholder" style="width: 480px; height: 360px;">
+          [Photo: Space City Books team]
+        </div>
+      </div>
+
+      <div class="text-col">
+        <p class="body-text drop-cap">
+          Space City Books is a Houston-based independent bookseller with deep roots in the comics,
+          sci-fi, and pop culture community. We believe every signed item tells a story — and that
+          story deserves to be told honestly.
+        </p>
+        <p class="body-text">
+          Our Certificate of Authentication service was born from a simple conviction: collectors
+          deserve more than a seller's promise. By placing an independent witness at the moment of
+          signing, we put our name — and our credibility — on the line for every CoA we issue.
+        </p>
+        <p class="body-text">
+          We have no stake in the transaction. We're not selling the item. We're not the buyer.
+          We're simply there — watching, documenting, and certifying — so you don't have to take
+          anyone's word for it.
+        </p>
+
+        <div class="lux-motto">
+          <div class="gold-rule"></div>
+          <p class="motto-latin">Lux Revelare</p>
+          <p class="motto-translation">Light Reveals</p>
+          <p class="body-text">
+            Our guiding principle: transparency is the foundation of trust. We don't hide behind
+            paperwork — we show up, we watch, we certify.
+          </p>
+        </div>
+
+        <div class="contact-block">
+          <p class="section-eyebrow">Get in touch</p>
+          <a href="mailto:hello@spacecitybooks.com" class="contact-link">
+            hello@spacecitybooks.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+
+  .lux-motto { margin-top: 0.5rem; }
+
+  .motto-latin {
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 0.25rem;
+  }
+  .motto-translation {
+    font-size: 0.625rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: var(--text-body);
+    font-family: var(--font-sans);
+    margin-bottom: 1rem;
+  }
+
+  .contact-block { margin-top: 2rem; }
+  .contact-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid var(--gold-dim);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .photo-placeholder { width: 100% !important; max-width: 480px; }
+  }
+</style>
